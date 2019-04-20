@@ -1,0 +1,87 @@
+body{
+    background: linear-gradient(85deg,#416fad,pink);
+}
+.register{
+    display: block;
+    z-index: 999;
+    height: 100vh;
+    background:linear-gradient(45deg, #9f41ad, #416fad);
+    &__user{
+        margin:17% 0;
+        text-align: center;
+    }
+    &__admin{
+        margin:17% 0;
+        text-align: center;
+    }
+    &__button{
+        border-radius: 30px;
+        width:300px;
+        height: 180px;
+        font-size: 20px;
+        background: white;
+        color:black;
+        border: 1px solid white;
+    }
+    &__button:active,&__button:focus{
+        outline: none;
+    }
+}
+.nav{
+    height: 100px;
+    background: linear-gradient(to top left, powderblue, pink);;
+    &__bar{
+        margin:0 auto;
+    }
+    &__item{
+        display: inline-block;
+        background: #416fad;
+        padding: 10px 30px;
+        font-size: 25px;
+        margin: 0 20px;
+        border-radius: 10px;
+        color: aliceblue;
+    }
+    &__item:hover{
+        color: #00e7ef;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &__row{
+        margin-top: 2%;
+    }
+}
+.search{
+    @mixin input_search() {
+        margin:2% auto;
+        width: 80%;
+        border-radius: 10px;
+        height: 40px;
+        outline: none;
+        text-align: center;
+    }
+    
+    &__line_book{
+        display: none;
+        @include input_search();
+    }
+    &__line_isbn{
+        display: none;
+        @include input_search();
+    }
+    &__line_category{
+        display: none;
+        @include input_search();
+    }
+}
+.admin{
+    display: none;
+}
+.div_book{
+    background: #416fad;
+    color: aliceblue;
+    margin: 2px;
+    padding: 2%;
+    font-size: 85%;
+    border-radius: 5px;
+}

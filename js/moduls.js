@@ -242,7 +242,10 @@ let Book={
             let div=target.parentNode;
             let find_what_show=div.getElementsByClassName('book_hidden');
             for(let i=0;i<find_what_show.length;i++){
-                find_what_show[i].style.display='inline';
+                if(find_what_show[i].style.display=='none')
+                    find_what_show[i].style.display='inline';
+                else
+                    find_what_show[i].style.display='none';
             }
         }
     }

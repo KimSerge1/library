@@ -1,5 +1,5 @@
 //Tree.create_tree();
-let submenu=document.querySelectorAll('.categories__item');
+Book.book_show();
 Tree.li_to_span();
-//Tree.hidden_submenu();
+Tree.hidden_submenu();
 Tree.show_submenu_on_click();

@@ -55,11 +55,11 @@ let elements={
         for(let i=0;i<books.length;i++){
             let div=document.createElement('div');
             div.className='div_book col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12';
-            div.innerHTML='Автор: '+books[i].autor+'<br>'+
-                        'Название: '+books[i].book+'<br>'+
-                        'ISBN: '+books[i].isbn+'<br>'+
-                        'Краткое описание: '+books[i].discription+'<br>'+
-                        'Категории: '+books[i].categoryes;
+            div.innerHTML='<p class="book_hidden">'+'Автор: '+books[i].autor+'</p>'+'<br>'+
+                        '<p class="book_name">'+'Название: '+books[i].book+'</p>'+'<br>'+
+                        '<p class="book_hidden">'+'ISBN: '+books[i].isbn+'</p>'+'<br>'+
+                        '<p class="book_hidden">'+'Краткое описание: '+books[i].discription+'</p>'+'<br>'+
+                        '<p class="book_hidden">'+'Категории: '+books[i].categoryes+'</p>';
             enter.appendChild(div);
         }
     },
@@ -185,9 +185,16 @@ let Tree={
         }
     },
     hidden_submenu:()=>{
-        let tree = document.getElementsByTagName('li')[0];
-        let parent_div=tree.parentNode;
-        console.log(parent_div);
+        let tree = document.getElementsByTagName('li');
+        for(let i=0;i<tree.length;i++){
+            let parent_div=tree[i].parentNode.parentNode;
+            if(parent_div.className=='tree'){
+                continue;
+            }else{
+                tree[i].style.display='none';
+                tree[i].parentNode.style.display='none';
+            }
+        }
         /*
         for(let i=0;i<submenu.length;i++){
             submenu[i].style.display='none';
@@ -203,7 +210,40 @@ let Tree={
             let li = target.parentNode;
             let children_сontainer = li.getElementsByTagName('ul')[0];
             if (!children_сontainer) return;
-            children_сontainer.hidden = !children_сontainer.hidden;
+            if(children_сontainer.style.display=='none'){
+                children_сontainer.style.display='block';
+                let children=children_сontainer.childNodes;
+                for(let i=0;i<children.length;i++){
+                    console.log(children[i].tagName);
+                    if(children[i].tagName=='LI'){
+                        children[i].style.display='block';
+                    }
+                }
+            }else{
+                children_сontainer.style.display='none';
+                let children=children_сontainer.childNodes;
+                for(let i=0;i<children.length;i++){
+                    console.log(children[i].tagName);
+                    if(children[i].tagName=='LI'){
+                        children[i].style.display='none';
+                    }
+                }
+            }
+        }
+    }
+}
+let Book={
+    book_show:()=>{
+        document.onclick=(event)=>{
+            let target=event.target;
+            if(target.tagName!='P' && target.className=='book_name'){
+                return;
+            }
+            let div=target.parentNode;
+            let find_what_show=div.getElementsByClassName('book_hidden');
+            for(let i=0;i<find_what_show.length;i++){
+                find_what_show[i].style.display='inline';
+            }
         }
     }
 }

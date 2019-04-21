@@ -1,6 +1,12 @@
 body{
     background: linear-gradient(85deg,#416fad,pink);
 }
+#panel{
+    display: none;
+}
+#panel_section{
+    display: none;
+}
 .register{
     display: block;
     z-index: 999;
@@ -96,4 +102,10 @@ body{
     border-radius: 10px;
     background: #416fad;
     color: aliceblue;
+    &__item{
+        cursor: pointer;
+    }
+}
+span {
+    border: 1px solid red;
 }

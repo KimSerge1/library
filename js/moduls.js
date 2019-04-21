@@ -1,6 +1,10 @@
 let access_level={
     User:()=>{
         let user_panel_show=document.querySelector('.register');
+        let show_panel=document.querySelector('#panel');
+        let show_panel_section=document.querySelector('#panel_section');
+        show_panel.style.display="flex";
+        show_panel_section.style.display="block";
         user_panel_show.style.display="none";
     },
     Admin:()=>{
@@ -168,6 +172,38 @@ let Tree={
         elements.create_list('.tree');
         for(let i=0;i<categories.length;i++){
             elements.create_list_item('.categories',categories[i]);
+        }
+    },
+    li_to_span:()=>{
+        var tree_ul = document.getElementsByTagName('ul')[0];
+        var tree_lis = tree_ul.getElementsByTagName('li');
+        for (var i = 0; i < tree_lis.length; i++) {
+            var li = tree_lis[i];
+            var span = document.createElement('span');
+            li.insertBefore(span, li.firstChild);
+            span.appendChild(span.nextSibling);
+        }
+    },
+    hidden_submenu:()=>{
+        let tree = document.getElementsByTagName('li')[0];
+        let parent_div=tree.parentNode;
+        console.log(parent_div);
+        /*
+        for(let i=0;i<submenu.length;i++){
+            submenu[i].style.display='none';
+        }*/
+    },
+    show_submenu_on_click:()=>{
+        let tree = document.getElementsByTagName('ul')[0];
+        tree.onclick = (event)=>{
+            let target = event.target;
+            if (target.tagName != 'SPAN') {
+                return;
+            }
+            let li = target.parentNode;
+            let children_сontainer = li.getElementsByTagName('ul')[0];
+            if (!children_сontainer) return;
+            children_сontainer.hidden = !children_сontainer.hidden;
         }
     }
 }

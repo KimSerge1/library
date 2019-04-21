@@ -29,8 +29,11 @@ let state={
         isbn:123123,
         discription:'Про психа',
         categoryes:['детектив','роман','психология']
+    },{
+        autor:'Фридрих Гауцберг',
+        book:'Новая история Германии',
+        isbn:234123,
+        discription:'Про Историю',
+        categoryes:['история']
     }],
-    categotyes:[
-        
-    ]
 };

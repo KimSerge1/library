@@ -1,6 +1,4 @@
 body {
-  background: -webkit-linear-gradient(5deg, #416fad, pink);
-  background: -o-linear-gradient(5deg, #416fad, pink);
   background: linear-gradient(85deg, #416fad, pink); }
 
 #panel {
@@ -13,8 +11,6 @@ body {
   display: block;
   z-index: 999;
   height: 100vh;
-  background: -webkit-linear-gradient(45deg, #9f41ad, #416fad);
-  background: -o-linear-gradient(45deg, #9f41ad, #416fad);
   background: linear-gradient(45deg, #9f41ad, #416fad); }
   .register__user {
     margin: 17% 0;
@@ -35,9 +31,6 @@ body {
 
 .nav {
   height: 100px;
-  background: -webkit-gradient(linear, right bottom, left top, from(powderblue), to(pink));
-  background: -webkit-linear-gradient(bottom right, powderblue, pink);
-  background: -o-linear-gradient(bottom right, powderblue, pink);
   background: linear-gradient(to top left, powderblue, pink); }
   .nav__bar {
     margin: 0 auto; }
@@ -108,11 +101,11 @@ body {
   .categories__item {
     cursor: pointer; }
 
-span {
-  border: 1px solid red; }
-
 .book_hidden {
   display: none; }
 
 .book_name {
   cursor: pointer; }
+
+span {
+  border: 1px solid red; }

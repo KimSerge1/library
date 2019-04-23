@@ -9,9 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Library</title>
     <script src="../js/moduls.js"></script>
     <script src="../js/state.js"></script>
-    <title>Library</title>
 </head>
 <body>
     <div class="register">
@@ -45,7 +45,7 @@
             <div class="row">
                 <input class="search__line_book" type="text" oninput="inputs.book()" placeholder="Введите название книги">
                 <input class="search__line_isbn" type="text" oninput="inputs.isbn()" placeholder="Введите номер isbn">
-                <input class="search__line_category" type="text" oninput="" placeholder="Введите название категории">
+                <input class="search__line_category" type="text" oninput="inputs.categories()" value="история" placeholder="Введите название категории">
             </div>
         </div>
     </div>
@@ -54,33 +54,33 @@
             <div class="row">
                 <div class="list col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
                     <div class="tree">
-
+                        
                         <ul class="categories">
                             <li class="categories__item">
-                                fkfkfk
+                                сказки
                                 <ul class="categories">
-                                    <li>fkfkf</li>
-                                    <li>fkfkf
+                                    <li>взрослые</li>
+                                    <li>детские
                                         <ul class="categories">
-                                            <li>fkfkf</li>
+                                            <li>Золотая рыбка</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li class="categories__item">
-                                fkfkfk
+                                история
                                 <ul class="categories">
-                                    <li>fkfkf
+                                    <li>Новая история
                                         <ul class="categories">
-                                            <li>fkfkf</li>
+                                            <li>Развитие сетей</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="categories__item">2</li>
-                            <li class="categories__item">3</li>
+                            <li class="categories__item">программирование</li>
+                            <li class="categories__item">зарубежная проза</li>
                         </ul>
-
+                        
                     </div>
                 </div>
                 <div class="display_books col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">

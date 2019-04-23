@@ -1,4 +1,4 @@
-let access_level={
+let access_level={ //уровни доступа
     User:()=>{
         let user_panel_show=document.querySelector('.register');
         let show_panel=document.querySelector('#panel');
@@ -12,7 +12,7 @@ let access_level={
         admin_panel_show.style.display="none";
     }
 }
-let nav_bar={
+let nav_bar={ //выбираем какой именно поиск у нас будет
     show_search_book:()=>{
         let search__line_book=document.querySelector('.search__line_book');
         let search__line_isbn=document.querySelector('.search__line_isbn');
@@ -50,7 +50,7 @@ let nav_bar={
         search__line_category.style.display="block";
     }
 }
-let elements={
+let elements={ //методы отвечающие за создание динамических элементов
     create_book:(books,enter)=>{
         for(let i=0;i<books.length;i++){
             let div=document.createElement('div');
@@ -74,11 +74,10 @@ let elements={
         let div=document.createElement('li');
         div.className='categories__item';
         div.innerHTML=category;
-        debugger;
         elem.appendChild(div);
     }
 }
-let finds={
+let finds={ //методы отвечающие за поиск
     find_isbn:(value)=>{
         let temp=[];
         let obj={};
@@ -102,7 +101,7 @@ let finds={
         }
         return temp;
     },
-    find_tree_category:(array1,array2)=>{
+    find_tree_category:(array1,array2)=>{ //поиск уникальных категорий, для отрисовки первоначального дерева
         let temp=array2;
         let arr1=array1;
         let arr2=array2;
@@ -122,9 +121,47 @@ let finds={
             }
         }
         return temp;
+    },
+    find_all_parent_and_display_block:(elem)=>{
+        if(elem.parentNode.parentNode.parentNode.className=='tree'){
+            return;
+        }else{
+            let previos=elem.parentNode;
+            previos.style.display='block';
+            finds.find_all_parent_and_display_block(previos);
+        }
+    },
+    find_category_in_tree:(val)=>{ //поиск категорий в дереве
+        let lis=document.getElementsByTagName('span');
+        let buff;
+        for(let i=0;i<lis.length;i++){
+            let category=lis[i].firstChild.data;
+            category = category.trim().toLowerCase();
+            if(category==val){
+                let children=lis[i].parentNode.childNodes;
+                for(let j=0;j<children.length;++j){
+                    console.log(children[j].tagName);
+                    if(children[j].tagName=='UL'/**/){
+                    let show_li=children[j].childNodes;
+                    for(let z=0;z<show_li.length;z++){
+                        if(show_li[z].tagName=='LI'){
+                            show_li[z].style.display='block';
+                        }
+                    }
+                    children[j].style.display="block";
+                    }
+                }
+                finds.find_all_parent_and_display_block(lis[i]);
+                console.log(lis[i].parentNode.parentNode.parentNode.className);
+                buff=category;
+            }
+        }
+        if(val!=buff){
+            Tree.hidden_submenu();
+        }
     }
 }
-let inputs={
+let inputs={ //методы работающие с вводом в поиск
     isbn:()=>{
         let input=document.querySelector('.search__line_isbn');
         let enter=document.querySelector('.add_book');
@@ -150,9 +187,13 @@ let inputs={
         if(books.length!=0){
             elements.create_book(books,enter);
         }
+    },
+    categories:()=>{
+        let input=document.querySelector('.search__line_category');
+        finds.find_category_in_tree(input.value);
     }
 }
-let Tree={
+let Tree={ //методы нашего деревца
     create_tree:()=>{
         let categories=[];
         for(let i=0;i<state.autors.length;i++){
@@ -230,9 +271,12 @@ let Tree={
                 }
             }
         }
+    },
+    add_books:()=>{
+        
     }
 }
-let Book={
+let Book={ //отображение информации о книжках
     book_show:()=>{
         document.onclick=(event)=>{
             let target=event.target;

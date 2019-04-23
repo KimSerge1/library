@@ -8,8 +8,14 @@ let access_level={ //уровни доступа
         user_panel_show.style.display="none";
     },
     Admin:()=>{
-        let admin_panel_show=document.querySelector('.register');
-        admin_panel_show.style.display="none";
+        let user_panel_show=document.querySelector('.register');
+        let show_panel=document.querySelector('#panel');
+        let show_panel_section=document.querySelector('#panel_section');
+        let admin_panel_show=document.querySelector('.admin');
+        show_panel.style.display="flex";
+        show_panel_section.style.display="block";
+        user_panel_show.style.display="none";
+        admin_panel_show.style.display="block";
     }
 }
 let nav_bar={ //выбираем какой именно поиск у нас будет
@@ -134,10 +140,12 @@ let finds={ //методы отвечающие за поиск
     find_category_in_tree:(val)=>{ //поиск категорий в дереве
         let lis=document.getElementsByTagName('span');
         let buff;
+        let val_case=val;
+        val_case=val_case.toLowerCase();
         for(let i=0;i<lis.length;i++){
             let category=lis[i].firstChild.data;
             category = category.trim().toLowerCase();
-            if(category==val){
+            if(category==val_case){
                 let children=lis[i].parentNode.childNodes;
                 for(let j=0;j<children.length;++j){
                     console.log(children[j].tagName);

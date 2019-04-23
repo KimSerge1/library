@@ -256,6 +256,18 @@ let Tree={ //методы нашего деревца
             if (target.tagName != 'SPAN') {
                 return;
             }
+            if(finds.find_book(target.innerHTML)){
+                let books=finds.find_book(target.innerHTML);
+                let enter=document.querySelector('.add_book');
+                if(enter.childNodes){
+                    while(enter.firstChild){
+                        enter.removeChild(enter.firstChild);
+                    }
+                }
+                if(books.length!=0){
+                    elements.create_book(books,enter);
+                }
+            }
             let li = target.parentNode;
             let children_сontainer = li.getElementsByTagName('ul')[0];
             if (!children_сontainer) return;
@@ -279,9 +291,6 @@ let Tree={ //методы нашего деревца
                 }
             }
         }
-    },
-    add_books:()=>{
-        
     }
 }
 let Book={ //отображение информации о книжках
@@ -300,5 +309,47 @@ let Book={ //отображение информации о книжках
                     find_what_show[i].style.display='none';
             }
         }
+    }
+}
+let Admin={
+    hidden_menu:()=>{
+        let hidden=document.querySelectorAll('.close_menu');
+        for(let i=0;i<hidden.length;i++){
+            hidden[i].onclick=(e)=>{
+                event=e.target;
+                let parent=event.parentNode.parentNode;
+                parent.style.display='none';
+            }
+        }
+    },
+    add_book_window:()=>{
+        let show_window=document.querySelector('.add__book');
+        show_window.style.display='block';
+        Admin.hidden_menu();
+    },
+    del_book_window:()=>{
+        let show_window=document.querySelector('.del__book');
+        show_window.style.display='block';
+        Admin.hidden_menu();
+    },
+    edit_book_window:()=>{
+        let show_window=document.querySelector('.edit__book');
+        show_window.style.display='block';
+        Admin.hidden_menu();
+    },
+    add_category_window:()=>{
+        let show_window=document.querySelector('.add__category');
+        show_window.style.display='block';
+        Admin.hidden_menu();
+    },
+    del_category_window:()=>{
+        let show_window=document.querySelector('.del__category');
+        show_window.style.display='block';
+        Admin.hidden_menu();
+    },
+    edit_category_window:()=>{
+        let show_window=document.querySelector('.edit__category');
+        show_window.style.display='block';
+        Admin.hidden_menu();
     }
 }

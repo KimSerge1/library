@@ -39,12 +39,12 @@
     </header>
     <section class="admin">
         <div class="admin__panel">
-            <button>Добавить книгу</button>
-            <button>Добавить категорию</button>
-            <button>Редактировать книгу </button>
-            <button>Редактировать категорию</button>
-            <button>Удалить книгу</button>
-            <button>Удалить категорю</button>
+            <button onclick="Admin.add_book_window()">Добавить книгу</button>
+            <button onclick="Admin.add_category_window()">Добавить категорию</button>
+            <button onclick="Admin.edit_book_window()">Редактировать книгу </button>
+            <button onclick="Admin.edit_category_window()">Редактировать категорию</button>
+            <button onclick="Admin.del_book_window()">Удалить книгу</button>
+            <button onclick="Admin.del_category_window()">Удалить категорю</button>
         </div>
     </section>
     <div class="search">
@@ -52,7 +52,7 @@
             <div class="row">
                 <input class="search__line_book" type="text" oninput="inputs.book()" placeholder="Введите название книги">
                 <input class="search__line_isbn" type="text" oninput="inputs.isbn()" placeholder="Введите номер isbn">
-                <input class="search__line_category" type="text" oninput="inputs.categories()" value="история" placeholder="Введите название категории">
+                <input class="search__line_category" type="text" oninput="inputs.categories()" placeholder="Введите название категории">
             </div>
         </div>
     </div>
@@ -104,6 +104,63 @@
             </div>
         </div>
     </section>
+    <div class="overlay add__book">
+        <div class="popup">
+            Название книги: <input type="text" class="admin_add_name"><br>
+            Автор книги: <input type="text" class="admin_add_autor"><br>
+            ISBN: <input type="text" class="admin_add_isbn"><br>
+            Описание: <input type="text" class="admin_add_discription"><br>
+            Категории(вводить через пробел): <input type="text" class="admin_add_categories"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay add__category">
+        <div class="popup">
+            Название категории: <input type="text" class="admin_add_name"><br>
+            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_add_name"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay edit__book">
+        <div class="popup">
+            Название книги для редактирования: <input type="text" class="admin_add_name"><br>
+            <hr>
+            Если нет изменений оставить поле пустым!<br>
+            Новое название:<input type="text" class="admin_add_name"><br>
+            Новый автор:<input type="text" class="admin_add_name"><br>
+            Новый isbn:<input type="text" class="admin_add_name"><br>
+            Новое описание:<input type="text" class="admin_add_name"><br>
+            Новые категории:<input type="text" class="admin_add_name"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay edit__category">
+        <div class="popup">
+            Название категории для редактирования: <input type="text" class="admin_add_name"><br>
+            <hr>
+            Название категории: <input type="text" class="admin_add_name"><br>
+            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_add_name"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay del__category">
+        <div class="popup">
+            Название категории: <input type="text" class="admin_add_name"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
+    <div class="overlay del__book">
+        <div class="popup">
+            Название книги: <input type="text" class="admin_add_name"><br>
+            <button onclick="">Добавить книгу</button>
+            <button class="close_menu">Закрыть</button>
+        </div>
+    </div>
     <script src="../js/index.js"></script>
 </body>
 </html>

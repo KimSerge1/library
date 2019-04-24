@@ -387,11 +387,10 @@ let Admin={
         let category=document.querySelector('.admin_add_category').value;
         let prev_category=document.querySelector('.admin_add_prev_category').value;
         let lis=document.getElementsByTagName('span');
-        debugger;
         if(prev_category!=''){
             for(let i=0;i<lis.length;i++){
                 let text=lis[i].innerText;
-                debugger;
+                //debugger;
                 if(text.trim()==prev_category){
                     let elem=lis[i].parentNode;
                     let elem_to_add=elem.querySelector('.categories');
@@ -419,5 +418,155 @@ let Admin={
             li.appendChild(ul);
             elem_to_add.appendChild(li);
         }
+    },
+    edit_book:()=>{
+        let book_to_edit=document.querySelector('.admin_edit_name_to_edit').value;
+        let name=document.querySelector('.admin_edit_name').value;
+        let autor=document.querySelector('.admin_edit_autor').value;
+        let isbn=document.querySelector('.admin_edit_isbn').value;
+        let discription=document.querySelector('.admin_edit_discription').value;
+        let categories=document.querySelector('.admin_edit_categories').value.split(' ');
+        let temp={
+            autor:autor,
+            book:name,
+            isbn:isbn,
+            discription:discription,
+            categoryes:categories
+        }
+        let index_of_state_autors=0;
+        let buff={}
+        for(let i=0;i<state.autors.length;i++){
+            //debugger;
+            if(book_to_edit==state.autors[i].book){
+                buff=state.autors[i];
+                break;
+            }
+            index_of_state_autors++;
+            //debugger;
+        }
+        //debugger;
+        if(temp.autor==''){
+            temp.autor=buff.autor;
+        }
+        if(temp.book==''){
+            temp.book=buff.book;
+        }
+        if(temp.isbn==''){
+            temp.isbn=buff.isbn;
+        }
+        if(temp.discription==''){
+            temp.discription=buff.discription;
+        }
+        if(temp.categoryes==''){
+            temp.categoryes=buff.categoryes;
+        }
+        debugger;
+        state.autors[index_of_state_autors]=temp;
+    },
+    del_category_func:(value)=>{
+        let lis=document.getElementsByTagName('span');
+        for(let i=0;i<lis.length;i++){
+            let text=lis[i].innerText;
+            if(text.trim()==value){
+                let elem=lis[i].parentNode;
+                elem.remove();
+            }
+        }
+    },
+    edit_category:()=>{
+        let lis=document.getElementsByTagName('span');
+        let category=document.querySelector('.admin_edit_category').value;
+        let edit_category=document.querySelector('.admin_edit_new_category').value;
+        let edit_prev=document.querySelector('.admin_edit_prev_category').value;
+        debugger;
+        if(edit_category==''){
+            let elem;
+            for(let i=0;i<lis.length;i++){
+                let text=lis[i].innerText;
+                //debugger;
+                if(text.trim()==category){
+                    elem=lis[i].parentNode.cloneNode(true);
+                    Admin.del_category_func(category);
+                }else{
+                    return;
+                }
+            }
+            for(let i=0;i<lis.length;i++){
+                let text=lis[i].innerText;
+                if(text.trim()==edit_prev){
+                    let elem_prev=lis[i].parentNode;
+                    let elem_to_add=elem_prev.querySelector('.categories');
+                    elem_to_add.appendChild(elem);
+                }
+            }   
+        }
+        debugger;
+        if(edit_prev==''){
+            for(let i=0;i<lis.length;i++){
+                let check_child=lis[i].parentNode.childNodes.length;
+                console.log(check_child);
+                if(check_child>2){
+                    let text=lis[i].innerText;
+                    //debugger;
+                    if(text.trim()==category){
+                        lis[i].innerHTML=edit_category;
+                    }
+                }else{
+                    return;
+                }
+            }
+        }
+        debugger;
+        if(edit_category==''&&edit_prev==''||category==''){
+            return;
+        }
+        if(edit_category!=''&&edit_prev!=''&&category!=''){
+            let elem;
+            for(let i=0;i<lis.length;i++){
+                let text=lis[i].innerText;
+                //debugger;
+                if(text.trim()==category){
+                    lis[i].innerHTML=edit_category;
+                    debugger;
+                    elem=lis[i].parentNode.cloneNode(true);
+                    Admin.del_category_func(edit_category);
+                }else{
+                    return;
+                }
+            }
+            for(let i=0;i<lis.length;i++){
+                let text=lis[i].innerText;
+                if(text.trim()==edit_prev){
+                    debugger;
+                    let elem_prev=lis[i].parentNode;
+                    let elem_to_add=elem_prev.querySelector('.categories');
+                    elem_to_add.appendChild(elem);
+                }
+            }
+        }
+    },
+    del_category:()=>{
+        let category=document.querySelector('.admin_del_category').value;
+        Admin.del_category_func(category);
+    },
+    del_book:()=>{
+        let book=document.querySelector('.admin_del_name').value;
+        let lis=document.getElementsByTagName('span');
+        for(let i=0;i<lis.length;i++){
+            let text=lis[i].innerText;
+            if(text.trim()==book){
+                let elem=lis[i].parentNode;
+                elem.remove();
+            }
+        }
+        for(let i=0;i<state.autors.length;i++){
+            //debugger;
+            if(book==state.autors[i].book){
+                state.autors.splice(i,1);
+                break;
+            }
+            //debugger;
+        }
+        console.log(state.autors);
     }
 }

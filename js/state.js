@@ -6,12 +6,6 @@ let state={
         discription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
         categoryes:['детектив','криминал','роман']
     },{
-        autor:'Анхель де Куатье',
-        book:'Дневники сумашедшего',
-        isbn:123123,
-        discription:'Про психа',
-        categoryes:['детектив','роман','психология']
-    },{
         autor:'Дениел Киз',
         book:'Цветы для Элджернона',
         isbn:123345,

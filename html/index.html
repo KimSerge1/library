@@ -125,39 +125,40 @@
     </div>
     <div class="overlay edit__book">
         <div class="popup">
-            Название книги для редактирования: <input type="text" class="admin_add_name"><br>
+            Название книги для редактирования: <input type="text" class="admin_edit_name_to_edit"><br>
             <hr>
             Если нет изменений оставить поле пустым!<br>
-            Новое название:<input type="text" class="admin_add_name"><br>
-            Новый автор:<input type="text" class="admin_add_name"><br>
-            Новый isbn:<input type="text" class="admin_add_name"><br>
-            Новое описание:<input type="text" class="admin_add_name"><br>
-            Новые категории:<input type="text" class="admin_add_name"><br>
-            <button onclick="">Добавить книгу</button>
+            Новое название:<input type="text" class="admin_edit_name"><br>
+            Новый автор:<input type="text" class="admin_edit_autor"><br>
+            Новый isbn:<input type="text" class="admin_edit_isbn"><br>
+            Новое описание:<input type="text" class="admin_edit_discription"><br>
+            Новые категории:<input type="text" class="admin_edit_categories"><br>
+            <button onclick="Admin.edit_book()">Редактировать книгу</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>
     <div class="overlay edit__category">
         <div class="popup">
-            Название категории для редактирования: <input type="text" class="admin_add_name"><br>
+            Название категории для редактирования: <input type="text" class="admin_edit_category"><br>
             <hr>
-            Название категории: <input type="text" class="admin_add_name"><br>
-            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_add_name"><br>
-            <button onclick="">Добавить книгу</button>
+            Название категории: <input type="text" class="admin_edit_new_category"><br>
+            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_edit_prev_category"><br>
+            <button onclick="Admin.edit_category()">Редактировать категорию</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>
     <div class="overlay del__category">
         <div class="popup">
-            Название категории: <input type="text" class="admin_add_name"><br>
-            <button onclick="">Добавить книгу</button>
+            <b>Внимание! Удаляя категорию, удалятся и все подкатегории!</b><br>
+            Название категории: <input type="text" class="admin_del_category"><br>
+            <button onclick="Admin.del_category()">Удалить категорию</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>
     <div class="overlay del__book">
         <div class="popup">
-            Название книги: <input type="text" class="admin_add_name"><br>
-            <button onclick="">Добавить книгу</button>
+            Название книги: <input type="text" class="admin_del_name"><br>
+            <button onclick="Admin.del_book()">Удалить книгу</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>

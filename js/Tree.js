@@ -73,10 +73,6 @@ let Tree={ //методы нашего деревца
                 tree[i].parentNode.style.display='none';
             }
         }
-        /*
-        for(let i=0;i<submenu.length;i++){
-            submenu[i].style.display='none';
-        }*/
     },
     show_submenu_on_click:()=>{
         let tree = document.getElementsByTagName('ul')[0];

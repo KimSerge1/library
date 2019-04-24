@@ -247,12 +247,10 @@ let Admin={
             }
         }
         for(let i=0;i<state.autors.length;i++){
-            //debugger;
             if(book==state.autors[i].book){
                 state.autors.splice(i,1);
                 break;
             }
-            //debugger;
         }
         console.log(state.autors);
     }

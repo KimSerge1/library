@@ -4,30 +4,30 @@ let state={
         book: 'Убийство в восточном экспрессе',
         isbn:'123456',
         discription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
-        categoryes:['детектив','криминал','роман']
+        categoryes:['детектив','криминал']
     },{
         autor:'Дениел Киз',
         book:'Цветы для Элджернона',
         isbn:123345,
-        discription:'Очень интересная книжка, прочитал на одном дыхании',
+        discription:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
         categoryes:['роман','зарубежная проза','психология']
     },{
         autor:'Анхель де Куатье',
         book:'Дневники сумашедшего',
         isbn:123123,
-        discription:'Про психа',
+        discription:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
         categoryes:['детектив','роман','психология']
     },{
-        autor:'Анхель де Куатье',
-        book:'Дневники самурая',
+        autor:'Харуки Мураками',
+        book:'Послемрак',
         isbn:123123,
-        discription:'Про психа',
+        discription:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
         categoryes:['детектив','роман','психология']
     },{
-        autor:'Фридрих Гауцберг',
-        book:'Новая история Германии',
+        autor:'Джон Даккетт',
+        book:'Js and jQuery',
         isbn:234123,
-        discription:'Про Историю',
-        categoryes:['история']
+        discription:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint minima doloremque fugiat dolores non a reiciendis numquam, mollitia voluptas provident explicabo nostrum omnis. Veniam, omnis corrupti. Quod molestiae facilis distinctio.',
+        categoryes:['программирование']
     }],
 };

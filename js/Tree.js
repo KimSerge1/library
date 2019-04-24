@@ -1,23 +1,55 @@
 let Tree={ //методы нашего деревца
+    unique_category:(arr)=>{
+        var obj = {};  
+        for (var i = 0; i < arr.length; i++) {
+            var str = arr[i];
+            obj[str] = true; // запомнить строку в виде свойства объекта
+        }
+        return Object.keys(obj);
+    },
     create_tree:()=>{
-        let categories=[];
-        for(let i=0;i<state.autors.length;i++){
-            if(i==0){
-                let temp=state.autors[i].categoryes;
-                for(let j=0;j<temp.length;j++){
-                    categories.push(temp[j]);
-                }
-            }else{
-                let temp=finds.find_tree_category(categories,state.autors[i].categoryes);
-                for(let j=0;j<temp.length;j++){
-                    categories.push(temp[j]);
-                }
+        let tree=document.querySelector('.tree');
+        let categories=state.autors;
+        let buffer=[];
+        for(let i=0;i<categories.length;i++){
+            let check=categories[i];
+            let mass=check.categoryes;
+            for(let j=0;j<mass.length;j++){
+                buffer.push(mass[j]);
             }
         }
-        console.log(categories);
-        elements.create_list('.tree');
-        for(let i=0;i<categories.length;i++){
-            elements.create_list_item('.categories',categories[i]);
+        debugger;
+        let ul_tree=document.createElement('ul');
+        ul_tree.classList='categories';
+        let unique_category=Tree.unique_category(buffer);
+        for(let i=0;i<unique_category.length;i++){
+            let ul=document.createElement('ul');
+            ul.className='categories';
+            let li=document.createElement('li');
+            li.className='categories__item';
+            li.innerHTML=unique_category[i];
+            li.appendChild(ul);
+            ul_tree.appendChild(li);
+        }
+        tree.appendChild(ul_tree);
+    },
+    add_books:()=>{
+        let lis=document.getElementsByTagName('span');
+        for(let i=0;i<lis.length;i++){
+            for(let j=0;j<state.autors.length;j++){
+                let text=lis[i].innerText;
+                for(let p=0;p<state.autors[j].categoryes.length;p++){
+                    if(text.trim()==state.autors[j].categoryes[p]){
+                        //console.log(categories[j]);
+                        let elem=lis[i].parentNode;
+                        let elem_to_add=elem.querySelector('.categories');
+                        let li=document.createElement('li');
+                        li.classList.add('categories__item');
+                        li.innerHTML='<span>'+state.autors[j].book+'</span>';
+                        elem_to_add.appendChild(li);
+                    }
+                }
+            }
         }
     },
     li_to_span:()=>{

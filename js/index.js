@@ -1,8 +1,6 @@
-//Tree.create_tree();
-//finds.find_category_in_tree();
-//finds.find_category_in_tree('взрослые');
-Book.book_show();
+Tree.create_tree();
 Tree.li_to_span();
+Book.book_show();
+Tree.add_books();
 Tree.show_submenu_on_click();
-//Tree.add_books();
 Tree.hidden_submenu();

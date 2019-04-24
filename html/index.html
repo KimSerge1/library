@@ -73,7 +73,7 @@
                                             <li>Цветы для Элджернона</li>
                                         </ul>
                                     </li>
-                                    <li>детские
+                                    <li class="categories__item">детские
                                         <ul class="categories">
                                             <li>Золотая рыбка</li>
                                         </ul>
@@ -111,15 +111,15 @@
             ISBN: <input type="text" class="admin_add_isbn"><br>
             Описание: <input type="text" class="admin_add_discription"><br>
             Категории(вводить через пробел): <input type="text" class="admin_add_categories"><br>
-            <button onclick="">Добавить книгу</button>
+            <button onclick="Admin.add_book()">Добавить книгу</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>
     <div class="overlay add__category">
         <div class="popup">
-            Название категории: <input type="text" class="admin_add_name"><br>
-            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_add_name"><br>
-            <button onclick="">Добавить книгу</button>
+            Название категории: <input type="text" class="admin_add_category"><br>
+            Предкатегория(Если это не подкатегория, то оставить поле пустым): <input type="text" class="admin_add_prev_category"><br>
+            <button onclick="Admin.add_category()">Добавить категорию</button>
             <button class="close_menu">Закрыть</button>
         </div>
     </div>

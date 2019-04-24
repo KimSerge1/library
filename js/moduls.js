@@ -224,11 +224,11 @@ let Tree={ //методы нашего деревца
         }
     },
     li_to_span:()=>{
-        var tree_ul = document.getElementsByTagName('ul')[0];
-        var tree_lis = tree_ul.getElementsByTagName('li');
-        for (var i = 0; i < tree_lis.length; i++) {
-            var li = tree_lis[i];
-            var span = document.createElement('span');
+        let tree_ul = document.getElementsByTagName('ul')[0];
+        let tree_lis = tree_ul.getElementsByTagName('li');
+        for (let i = 0; i < tree_lis.length; i++) {
+            let li = tree_lis[i];
+            let span = document.createElement('span');
             li.insertBefore(span, li.firstChild);
             span.appendChild(span.nextSibling);
         }
@@ -351,5 +351,73 @@ let Admin={
         let show_window=document.querySelector('.edit__category');
         show_window.style.display='block';
         Admin.hidden_menu();
+    },
+    add_book:()=>{
+        let name=document.querySelector('.admin_add_name').value;
+        let autor=document.querySelector('.admin_add_autor').value;
+        let isbn=document.querySelector('.admin_add_isbn').value;
+        let discription=document.querySelector('.admin_add_discription').value;
+        let categories=document.querySelector('.admin_add_categories').value.split(' ');
+        let temp={
+            autor:autor,
+            book:name,
+            isbn:isbn,
+            discription:discription,
+            categoryes:categories
+        }
+        state.autors.push(temp);
+        let lis=document.getElementsByTagName('span');
+        for(let i=0;i<lis.length;i++){
+            for(let j=0;j<categories.length;j++){
+                let text=lis[i].innerText;
+                debugger;
+                if(text.trim()==categories[j]){
+                    console.log(categories[j]);
+                    let elem=lis[i].parentNode;
+                    let elem_to_add=elem.querySelector('.categories');
+                    let li=document.createElement('li');
+                    li.classList.add('categories__item');
+                    li.innerHTML='<span>'+name+'</span>';
+                    elem_to_add.appendChild(li);
+                }
+            }
+        }
+    },
+    add_category:()=>{
+        let category=document.querySelector('.admin_add_category').value;
+        let prev_category=document.querySelector('.admin_add_prev_category').value;
+        let lis=document.getElementsByTagName('span');
+        debugger;
+        if(prev_category!=''){
+            for(let i=0;i<lis.length;i++){
+                let text=lis[i].innerText;
+                debugger;
+                if(text.trim()==prev_category){
+                    let elem=lis[i].parentNode;
+                    let elem_to_add=elem.querySelector('.categories');
+                    let li=document.createElement('li');
+                    let ul=document.createElement('ul');
+                    li.classList.add('categories__item');
+                    ul.classList.add('categories');
+                    ul.style.display='none';
+                    li.innerHTML='<span>'+category+'</span>';
+                    li.appendChild(ul);
+                    elem_to_add.appendChild(li);
+                }else{
+                    return;
+                }
+            }
+        }else{
+            let elem_to_add=document.querySelectorAll('.categories')[0];
+            debugger;
+            let li=document.createElement('li');
+            let ul=document.createElement('ul');
+            li.classList.add('categories__item');
+            ul.classList.add('categories');
+            ul.style.display='none';
+            li.innerHTML='<span>'+category+'</span>';
+            li.appendChild(ul);
+            elem_to_add.appendChild(li);
+        }
     }
 }
